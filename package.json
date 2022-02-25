@@ -1,45 +1,39 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "degen-gatsby",
+  "version": "1.0.0",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "degen-gatsby",
+  "author": "dhow",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
     "gatsby": "^4.8.0",
-    "gatsby-plugin-gatsby-cloud": "^4.8.0",
-    "gatsby-plugin-image": "^2.8.0",
-    "gatsby-plugin-manifest": "^4.8.0",
-    "gatsby-plugin-offline": "^5.8.0",
+    "gatsby-plugin-image": "^2.8.1",
+    "gatsby-plugin-mdx": "^3.8.1",
     "gatsby-plugin-react-helmet": "^5.8.0",
-    "gatsby-plugin-sharp": "^4.8.0",
-    "gatsby-source-filesystem": "^4.8.0",
+    "gatsby-plugin-sharp": "^4.8.1",
+    "gatsby-plugin-sitemap": "^5.8.0",
+    "gatsby-source-filesystem": "^4.8.1",
     "gatsby-transformer-sharp": "^4.8.0",
-    "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "prettier": "^2.5.1"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "@types/node": "^17.0.14",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "typescript": "^4.5.5"
   }
 }
