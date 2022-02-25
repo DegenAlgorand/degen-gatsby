@@ -5,16 +5,17 @@ import { ChakraProvider } from "@chakra-ui/provider";
 
 import theme from "../theme";
 import ColorModeToggle from "../components/colorModeToggle";
+import Navbar from "../components/navbar";
 
 // markup
 const IndexPage = () => {
   return (
     <ChakraProvider theme={theme}>
+      <Navbar />
       <Center padding={10}>
-        <ColorModeToggle />
+        
         <Box>
           <Text>Degen</Text>
-          <Button>Click Me</Button>
         </Box>
       </Center>
     </ChakraProvider>
