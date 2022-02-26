@@ -12,7 +12,7 @@ const MyAlgoConnectButton = () => {
         }
     }
     return (
-        <Button onClick={handleMyAlgoConnect}>Connect MyAlgo</Button>
+        <Button w={'100%'} marginBottom={'10px'} onClick={handleMyAlgoConnect}>Connect MyAlgo</Button>
     )
 }
  

@@ -1,6 +1,6 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react';
 import React from 'react';
-import MyAlgoConnectButton from './myAlgoConnect';
+import MyAlgoConnectButton from './myAlgoConnectButton';
 import WalletConnectButton from './walletConnectButton';
 import * as buffer from 'buffer';
 (window as any).Buffer = buffer.Buffer;
@@ -20,9 +20,6 @@ const WalletConnectModal = () => {
             <MyAlgoConnectButton />
             <WalletConnectButton />
           </ModalBody>
-          <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>

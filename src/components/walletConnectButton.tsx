@@ -20,9 +20,8 @@ const WalletConnectButton = () => {
     }
   }
   
-
   return (
-    <Button onClick={handleWalletConnect}>Wallet Connect</Button>
+    <Button w={'100%'} marginBottom={'10px'} onClick={handleWalletConnect}>Wallet Connect</Button>
   )
 }
 
