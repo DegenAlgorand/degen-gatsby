@@ -8,6 +8,6 @@ const theme = extendTheme({
     heading: 'Space Mono, sans-serif',
     body: 'Roboto Mono, sans-serif',
   },
-})
+});
 
-export default theme
+export default theme;

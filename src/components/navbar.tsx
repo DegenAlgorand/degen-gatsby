@@ -13,6 +13,7 @@ import {
   IconButton,
   CloseButton,
   Text,
+  color,
 } from "@chakra-ui/react";
 import { AiOutlineMenu } from "react-icons/ai";
 import DegenTokenLogo from "../components/degenTokenLogo";
@@ -36,16 +37,23 @@ const Navbar = () => {
           <Flex>
             <chakra.a
               href="/"
-              title="Choc Home Page"
+              title="decentralized generation"
               display="flex"
               alignItems="center"
             >
               <DegenTokenLogo />
-              <VisuallyHidden>Choc</VisuallyHidden>
+              <VisuallyHidden>decentralized generation</VisuallyHidden>
             </chakra.a>
-            <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
-              decentralized generation
-            </chakra.h1>
+            <Box display={{ base: "none", md: "inline-flex" }}>
+              <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
+                <span style={{ 'color': '#FFF' }}>de</span>centralized <span style={{ 'color': '#fff' }}>gen</span>eration
+              </chakra.h1>
+            </Box>
+            <Box display={{ base: "inline-flex", md: "none" }}>
+              <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
+                degen
+              </chakra.h1>
+            </Box>
           </Flex>
           <HStack display="flex" alignItems="center" spacing={1}>
             <HStack
@@ -81,6 +89,7 @@ const Navbar = () => {
                 spacing={3}
                 rounded="sm"
                 shadow="sm"
+                zIndex={10}
               >
                 <CloseButton
                   aria-label="Close menu"
