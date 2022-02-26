@@ -44,7 +44,7 @@ const Navbar = () => {
               <VisuallyHidden>Choc</VisuallyHidden>
             </chakra.a>
             <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
-              Degen
+              decentralized generation
             </chakra.h1>
           </Flex>
           <HStack display="flex" alignItems="center" spacing={1}>
