@@ -17,6 +17,7 @@ import {
 import { AiOutlineMenu } from "react-icons/ai";
 import DegenTokenLogo from "../components/degenTokenLogo";
 import ColorModeToggle from "./colorModeToggle";
+import WalletConnectModal from "./walletConnectModal";
 
 const Navbar = () => {
   const bg = useColorModeValue("white", "gray.800");
@@ -28,7 +29,7 @@ const Navbar = () => {
         bg={bg}
         w="full"
         px={{ base: 2, sm: 4 }}
-        py={4}
+        py={6}
         shadow="md"
       >
         <Flex alignItems="center" justifyContent="space-between" mx="auto">
@@ -55,9 +56,7 @@ const Navbar = () => {
             >
               <ColorModeToggle />
             </HStack>
-            <Button size="sm">
-              Connect Wallet
-            </Button>
+            <WalletConnectModal />
             <Box display={{ base: "inline-flex", md: "none" }}>
               <IconButton
                 display={{ base: "flex", md: "none" }}
@@ -68,7 +67,6 @@ const Navbar = () => {
                 icon={<AiOutlineMenu />}
                 onClick={mobileNav.onOpen}
               />
-
               <VStack
                 pos="absolute"
                 top={0}
