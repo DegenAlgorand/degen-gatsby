@@ -1,6 +1,9 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react';
 import React from 'react';
 import MyAlgoConnectButton from './myAlgoConnect';
+import WalletConnectButton from './walletConnectButton';
+import * as buffer from 'buffer';
+(window as any).Buffer = buffer.Buffer;
 
 const WalletConnectModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -15,6 +18,7 @@ const WalletConnectModal = () => {
           <ModalCloseButton />
           <ModalBody>
             <MyAlgoConnectButton />
+            <WalletConnectButton />
           </ModalBody>
           <ModalFooter>
             <Button onClick={onClose}>Close</Button>
