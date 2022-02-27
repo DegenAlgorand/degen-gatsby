@@ -3,7 +3,10 @@ import React from 'react';
 import MyAlgoConnectButton from './myAlgoConnectButton';
 import WalletConnectButton from './walletConnectButton';
 import * as buffer from 'buffer';
-(window as any).Buffer = buffer.Buffer;
+
+if (typeof window !== `undefined`) {
+  (window as any).Buffer = buffer.Buffer;
+}
 
 const WalletConnectModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
