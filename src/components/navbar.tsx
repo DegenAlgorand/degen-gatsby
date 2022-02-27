@@ -46,7 +46,7 @@ const Navbar = () => {
             </chakra.a>
             <Box display={{ base: "none", md: "inline-flex" }}>
               <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
-                <span style={{ 'color': '#FFF' }}>de</span>centralized <span style={{ 'color': '#fff' }}>gen</span>eration
+                decentralized generation
               </chakra.h1>
             </Box>
             <Box display={{ base: "inline-flex", md: "none" }}>
