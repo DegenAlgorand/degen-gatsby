@@ -9,7 +9,7 @@ const MyAlgoConnectButton = () => {
         const myAlgoConnect = new MyAlgoConnect();
         try {
             const accountsSharedByUser = await myAlgoConnect.connect();
-            setAccount({account: accountsSharedByUser[0], provider: 'MyAlgo'});
+            setAccount({address: accountsSharedByUser[0], provider: 'MyAlgo'});
         } catch(err) {
             console.log(err);
         }

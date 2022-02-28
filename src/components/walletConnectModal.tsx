@@ -9,6 +9,7 @@ if (typeof window !== `undefined`) {
   (window as any).Buffer = buffer.Buffer;
 }
 
+const truncate = (address: string) => address.substring(0, 4) + "..." + address.substring(address.length-4, address.length)
 
 const WalletConnectModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -16,9 +17,10 @@ const WalletConnectModal = () => {
 
   const handleDisconnect = () => {
     setAccount({});
+    localStorage.setItem('walletconnect', '{}');
   }   
-  if (account?.account?.address) {
-    return <Button onClick={handleDisconnect}>{account?.account?.name}</Button>
+  if (account?.address) {
+    return <Button onClick={handleDisconnect}>{truncate(account?.address)}</Button>
   }
   return (
     <>
