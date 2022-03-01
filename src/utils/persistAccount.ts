@@ -4,6 +4,6 @@ interface WalletAccount {
     address: string;
     provider: string;
 }
-const useWalletAccount = createPersistedState('walletAccount');
+const useWalletAccount = createPersistedState<WalletAccount>('walletAccount');
 
 export default useWalletAccount;
