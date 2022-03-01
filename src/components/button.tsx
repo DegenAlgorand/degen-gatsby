@@ -3,7 +3,7 @@ import { Button as ImportedButton} from '@chakra-ui/react';
 
 interface ButtonProps {
   width: string,
-  marginBottom: string,
+  marginBottom?: string,
   onClickHandler: React.MouseEventHandler<HTMLButtonElement>,
   text: string
 }
