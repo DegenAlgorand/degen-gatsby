@@ -16,7 +16,7 @@ const WalletConnectModal = () => {
   const [account, setAccount] = useWalletAccount();
 
   const handleDisconnect = () => {
-    setAccount({});
+    setAccount({address: null, provider: null});
     localStorage.setItem('walletconnect', '{}');
   }   
   if (account?.address) {
