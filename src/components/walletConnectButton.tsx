@@ -26,7 +26,7 @@ const WalletConnectButton = () => {
     
       // Get provided accounts
       const { accounts } = payload.params[0];
-      setAccount({address: accounts[0], provider: 'PeraWallet'});
+      setAccount({connected: true, address: accounts[0], provider: 'PeraWallet'});
     });
   }
   

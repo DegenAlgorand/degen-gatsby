@@ -1,8 +1,9 @@
 import createPersistedState from 'use-persisted-state';
 
 interface WalletAccount {
-    address?: string;
-    provider?: string;
+    connected: boolean,
+    address: string;
+    provider: string;
 }
 
 const useWalletAccount = createPersistedState<WalletAccount>('walletAccount');

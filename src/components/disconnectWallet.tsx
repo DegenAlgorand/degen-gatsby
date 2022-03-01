@@ -7,7 +7,7 @@ const DisconnectWalletButton = () => {
   const [account, setAccount] = useWalletAccount();
 
   const handleDisconnect = () => {
-    setAccount();
+    setAccount({connected: false, address: "", provider: ""});
     localStorage.removeItem('walletAccount');
   }   
   return (
