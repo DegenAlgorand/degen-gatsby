@@ -16,9 +16,9 @@ import {
   color,
 } from "@chakra-ui/react";
 import { AiOutlineMenu } from "react-icons/ai";
-import DegenTokenLogo from "../components/degenTokenLogo";
+import DegenTokenLogo from "./logos/degenTokenLogo";
 import ColorModeToggle from "./colorModeToggle";
-import WalletConnectModal from "./walletConnectModal";
+import WalletConnect from "./walletConnect";
 
 const Navbar = () => {
   const bg = useColorModeValue("white", "gray.800");
@@ -64,7 +64,9 @@ const Navbar = () => {
             >
               <ColorModeToggle />
             </HStack>
-            <WalletConnectModal />
+
+            <WalletConnect />
+
             <Box display={{ base: "inline-flex", md: "none" }}>
               <IconButton
                 display={{ base: "flex", md: "none" }}
