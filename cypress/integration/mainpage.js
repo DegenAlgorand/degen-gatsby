@@ -1,5 +1,5 @@
 describe('Degen Website', () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit('http://localhost:8000/');
   });
   it('toggle dark mode should work', () => {
@@ -12,4 +12,7 @@ describe('Degen Website', () => {
     cy.get('[data-test="myAlgoConnectButton"]')
     cy.get('[data-test="walletConnectButton"]')
   })
+  it('should popup myalgo on click', () => {
+    cy.get('[data-test="myAlgoConnectButton"]').click();
+  });
 })
