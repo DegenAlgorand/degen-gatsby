@@ -93,16 +93,16 @@ const Layout = ({children}:LayoutProps) => {
     } catch(err) {
         console.log(err);
     }
+  }
 
-  // For the future may need to use useEffect to get initial state (not sure how this works yet)
-  useEffect(() => {
-    console.log("here")
-    console.log(account)
-    if(!account){
-      setAccount({connected:false, address: "", provider:""})
-    }
-  }, [account]);
-}
+    // For the future may need to use useEffect to get initial state (not sure how this works yet)
+  // useEffect(() => {
+  //   console.log("here")
+  //   console.log(account)
+  //   if(!account){
+  //     setAccount({connected:false, address: "", provider:""})
+  //   }
+  // }, [account]);
 
   return (
     
