@@ -1,27 +1,23 @@
-import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react';
+import {Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from '@chakra-ui/react';
 import React from 'react';
-import MyAlgoConnectButton from './myAlgoConnectButton';
-import WalletConnectButton from './walletConnectButton';
-import * as buffer from 'buffer';
 
-if (typeof window !== `undefined`) {
-  (window as any).Buffer = buffer.Buffer;
+interface WalletConnectModalProps {
+  children?: React.ReactNode;
+  isOpen:boolean,
+  onClose:() => void,
 }
 
-const WalletConnectModal = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-
+const WalletConnectModal = ({children, isOpen, onClose}:WalletConnectModalProps) => {
+  
   return (
     <>
-      <Button onClick={onOpen}>Connect Wallet</Button>
       <Modal onClose={onClose} size={'sm'} isOpen={isOpen}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Connect Your Wallet</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <MyAlgoConnectButton />
-            <WalletConnectButton />
+            {children}
           </ModalBody>
         </ModalContent>
       </Modal>

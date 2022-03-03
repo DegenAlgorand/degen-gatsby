@@ -17,10 +17,13 @@ import {
 } from "@chakra-ui/react";
 import { AiOutlineMenu } from "react-icons/ai";
 import DegenTokenLogo from "./logos/degenTokenLogo";
-import ColorModeToggle from "./colorModeToggle";
-import WalletConnect from "./walletConnect";
 
-const Navbar = () => {
+
+interface NavbarProps {
+  children?: React.ReactNode;
+}
+
+const Navbar = ({children}:NavbarProps) => {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
 
@@ -62,11 +65,8 @@ const Navbar = () => {
               color="brand.500"
               display={{ base: "none", md: "inline-flex" }}
             >
-              <ColorModeToggle />
             </HStack>
-
-            <WalletConnect />
-
+            {children}
             <Box display={{ base: "inline-flex", md: "none" }}>
               <IconButton
                 display={{ base: "flex", md: "none" }}
@@ -117,7 +117,7 @@ const Navbar = () => {
                     <Text>
                         Dark/Light
                     </Text>
-                    <ColorModeToggle />
+                    {/* <ColorModeToggle /> Will need to figure out how to assign children compoments as a prop in multiple places*/}
                 </HStack>
               </VStack>
             </Box>

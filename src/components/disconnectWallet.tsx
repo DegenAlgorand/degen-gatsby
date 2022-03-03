@@ -1,18 +1,16 @@
 import { Button, Tooltip } from '@chakra-ui/react';
 import React from 'react'
-import useWalletAccount from '../utils/persistAccount';
 import { BsFillEjectFill } from "react-icons/bs";
 
-const DisconnectWalletButton = () => {
-  const [account, setAccount] = useWalletAccount();
+interface DisconnectWalletButtonProps {
+  onClickHandler: React.MouseEventHandler<HTMLButtonElement>,
+}
 
-  const handleDisconnect = () => {
-    setAccount();
-    localStorage.removeItem('walletAccount');
-  }   
+const DisconnectWalletButton = ({onClickHandler}:DisconnectWalletButtonProps) => {
+
   return (
     <Tooltip label='Disconnect Wallet'>
-      <Button onClick={handleDisconnect}><BsFillEjectFill /> </Button>
+      <Button onClick={onClickHandler}><BsFillEjectFill /> </Button>
     </Tooltip>
   );
 }
