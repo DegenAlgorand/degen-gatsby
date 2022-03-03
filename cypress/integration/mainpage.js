@@ -12,7 +12,13 @@ describe('Degen Website', () => {
     cy.get('[data-test="myAlgoConnectButton"]')
     cy.get('[data-test="walletConnectButton"]')
   })
-  it('should popup myalgo on click', () => {
+
+  it.skip('should show myAlgo popup on button click', () => {
     cy.get('[data-test="myAlgoConnectButton"]').click();
   });
+  it('should show wallet connect', () => {
+    cy.get('[data-test="walletConnectButton"]').click();
+    cy.get('.walletconnect-qrcode__image');
+  });
+
 })
