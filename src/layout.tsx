@@ -108,18 +108,18 @@ const Layout = ({children}:LayoutProps) => {
     
     <ChakraProvider theme={theme}>
       <WalletConnectModal isOpen={isOpen} onClose={onClose}>
-        <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleMyAlgoConnect} text={"Connect MyAlgo"}/>
-        <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleWalletConnect} text={"Wallet Connect"}/>
+        <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleMyAlgoConnect} text={"Connect MyAlgo"} dataTest={'myAlgoConnectButton'} />
+        <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleWalletConnect} text={"Wallet Connect"} dataTest={'walletConnectButton'} />
       </WalletConnectModal>
       <Navbar>
       <ColorModeToggle/>
       {account.connected?
         <HStack>
-          <Button width={'100%'} onClickHandler={onOpen} text={truncate(account.address!)}/>
-          <DisconnectWalletButton onClickHandler={handleDisconnect}/>
+          <Button width={'100%'} onClickHandler={onOpen} text={truncate(account.address!)} dataTest={'connectedAccountButton'} />
+          <DisconnectWalletButton onClickHandler={handleDisconnect} data-test={'disconnectWalletButton'} />
         </HStack>
         :
-        <Button width={'100%'} marginBottom={'10px'} onClickHandler={onOpen} text={"Connect Wallet"}/>
+        <Button width={'100%'} marginBottom={'10px'} onClickHandler={onOpen} text={"Connect Wallet"} dataTest={'connectWalletButton'}/>
       } 
       </Navbar>
       <Container maxW={'7xl'}>
