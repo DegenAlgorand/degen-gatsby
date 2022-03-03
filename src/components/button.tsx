@@ -5,13 +5,14 @@ interface ButtonProps {
   width: string,
   marginBottom?: string,
   onClickHandler: React.MouseEventHandler<HTMLButtonElement>,
-  text: string
+  text: string,
+  dataTest: string,
 }
 
-const Button = ({width, marginBottom, onClickHandler, text}: ButtonProps) => {
+const Button = ({width, marginBottom, onClickHandler, text, dataTest}: ButtonProps) => {
 
   return (
-    <ImportedButton w={width} marginBottom={marginBottom} onClick={onClickHandler}>{text}</ImportedButton>
+    <ImportedButton w={width} marginBottom={marginBottom} onClick={onClickHandler} data-test={dataTest || ''}>{text}</ImportedButton>
   )
 }
 
