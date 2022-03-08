@@ -1,16 +1,16 @@
 name: Gatsby Publish
 
-# on:
-#   push:
-#     branches:
-#       - main
-
-on: push
+on:
+  workflow_run:
+    workflows: ["Cypress Tests"]
+    branches: [main]
+    types: 
+      - completed
 
 jobs:
   gh-pages-deploy:
     runs-on: ubuntu-latest
-    # the list of steps that the action will go through
+    needs: run-e2e-tests
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
