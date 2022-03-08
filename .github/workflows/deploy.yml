@@ -8,7 +8,7 @@ name: Gatsby Publish
 on: [push]
 
 jobs:
-  cypress-run:
+  gh-pages-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
-        - run : git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         - run : npm install
+        - run : git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         - run : npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
