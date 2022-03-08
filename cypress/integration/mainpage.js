@@ -1,6 +1,6 @@
 describe('Degen Website', () => {
   before(() => {
-    cy.visit('http://localhost:8000/');
+    cy.visit('http://localhost:9000/');
   });
   it('toggle dark mode should work', () => {
     cy.get('body').should('have.css', 'background-color', 'rgb(255, 255, 255)')

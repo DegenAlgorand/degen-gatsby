@@ -1,0 +1,29 @@
+name: Gatsby Publish
+
+on:
+  workflow_run:
+    workflows: ["Cypress Tests"]
+    branches: [main]
+    types: 
+      - completed
+
+jobs:
+  gh-pages-deploy:
+    runs-on: ubuntu-latest
+    needs: run-e2e-tests
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+      - name: "Set-up"
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: "Install"
+        run: npm install
+      - name: "Github Pages Deployment"
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
