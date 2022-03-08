@@ -1,0 +1,23 @@
+name: Gatsby Publish
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+on: [push]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      - name: deploy
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - run : npm install
+      - run : npm run deploy
