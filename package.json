@@ -13,8 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "typecheck": "tsc --noEmit",
     "cypress:open": "cypress open"
   },
