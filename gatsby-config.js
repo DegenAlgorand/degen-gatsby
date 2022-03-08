@@ -1,9 +1,9 @@
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
-  pathPrefix: "/degen-gatsby",
+  pathPrefix: "/",
   siteMetadata: {
       title: ``,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.degentoken.xyz`
   },
   plugins: ["gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
