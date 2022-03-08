@@ -35,7 +35,7 @@ const BuildingCommunity = () => (
       100% of Degen initially went into the Tinyman liquidity pool and no 
       Degen was withheld for the team. In fact, there is no predetermined 'team', 
       Degen token holders will have a say in determining the direction of Degen. 
-      We are bootstrapping a community, Degen Token is our governance.
+      We are bootstrapping a community, Degen Token is our governance token.
       </Text>
       <Stack
         spacing={{ base: 4, sm: 6 }}
