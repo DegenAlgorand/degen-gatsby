@@ -44,7 +44,7 @@ const Navbar = ({children}:NavbarProps) => {
               display="flex"
               alignItems="center"
             >
-              <DegenTokenLogo />
+              <DegenTokenLogo size={30} />
               <VisuallyHidden>decentralized generation</VisuallyHidden>
             </chakra.a>
             <Box display={{ base: "none", md: "inline-flex" }}>
