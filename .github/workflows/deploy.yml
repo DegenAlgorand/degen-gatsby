@@ -14,22 +14,16 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
-      - name: Get yarn cache directory path # get yarn cache path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v2 # cache yarn
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      - name: "Install"
+        uses: actions/setup-node@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-      - name: "Install Dependencies"
-        run: yarn
+          node-version: '16'
+          cache: 'npm'
       - name: "Github Pages Deployment"
         run: |
+          npm install
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          yarn deploy -u "github-actions-bot <support+actions@github.com>"
+          npm run deploy -u "github-actions-bot <support+actions@github.com>"
         # if: ${{ github.ref == 'refs/heads/master' }} # only deploy master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
