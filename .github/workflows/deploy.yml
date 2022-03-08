@@ -1,16 +1,15 @@
 name: Gatsby Publish
 
 on:
-  workflow_run:
-    workflows: ["Cypress Tests"]
-    branches: [main]
-    types: 
-      - completed
+  pull_request:
+    branches:
+      - deploy
+    types: [closed]
 
 jobs:
   gh-pages-deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    needs: run-e2e-tests
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
