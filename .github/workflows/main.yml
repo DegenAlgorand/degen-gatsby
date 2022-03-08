@@ -16,7 +16,7 @@ jobs:
           start: npm run serve
 
   gh-pages-deploy:
-    if: github.ref == 'refs/heads/main
+    if: github.ref == 'refs/heads/main'
     needs: run-e2e-tests
     runs-on: ubuntu-latest
     steps:
