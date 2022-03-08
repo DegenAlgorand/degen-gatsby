@@ -23,7 +23,7 @@ const BuildingCommunity = () => (
             position: 'absolute',
             bottom: 1,
             left: 0,
-            bg: 'green.400',
+            bg: 'purple.400',
           }}>
           Decentralized Community on Algorand.
         </Text>
@@ -46,9 +46,9 @@ const BuildingCommunity = () => (
             size={'lg'}
             fontWeight={'normal'}
             px={6}
-            colorScheme={'green'}
-            bg={'green.400'}
-            _hover={{ bg: 'green.500' }}>
+            colorScheme={'purple'}
+            bg={'purple.400'}
+            _hover={{ bg: 'purple.500' }}>
             Join Discord
           </Button>
         </Link>
