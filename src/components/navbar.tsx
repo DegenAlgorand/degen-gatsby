@@ -67,7 +67,7 @@ const Navbar = ({children}:NavbarProps) => {
             >
             </HStack>
             {children}
-            <Box display={{ base: "inline-flex", md: "none" }}>
+            {/* <Box display={{ base: "inline-flex", md: "none" }}>
               <IconButton
                 display={{ base: "flex", md: "none" }}
                 aria-label="Open menu"
@@ -117,10 +117,9 @@ const Navbar = ({children}:NavbarProps) => {
                     <Text>
                         Dark/Light
                     </Text>
-                    {/* <ColorModeToggle /> Will need to figure out how to assign children compoments as a prop in multiple places*/}
                 </HStack>
               </VStack>
-            </Box>
+            </Box> */}
           </HStack>
         </Flex>
       </chakra.header>

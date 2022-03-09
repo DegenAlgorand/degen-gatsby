@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 
 import { Container, useDisclosure, HStack } from '@chakra-ui/react';
 import { ChakraProvider } from "@chakra-ui/provider";
@@ -11,17 +11,14 @@ import Navbar from "./components/navbar";
 import Button from "./components/button";
 import WalletConnectModal from "./components/walletConnectModal"
 import ColorModeToggle from "./components/colorModeToggle";
-import DisconnectWalletButton from './components/disconnectWallet';
 
-import { truncate } from './utils/utilities';
 import * as buffer from 'buffer';
-// import WalletConnect from "./components/walletConnect";
 
 import '@fontsource/space-mono';
 import '@fontsource/roboto-mono';
 
 import useWalletAccount from './utils/persistAccount';
-import { connected } from "process";
+import AccountInfoPopover from "./components/accountInfoPopover";
 
 if (typeof window !== `undefined`) {
   (window as any).Buffer = buffer.Buffer;
@@ -96,14 +93,10 @@ const Layout = ({children}:LayoutProps) => {
     }
   }
 
-    // For the future may need to use useEffect to get initial state (not sure how this works yet)
-  // useEffect(() => {
-  //   console.log("here")
-  //   console.log(account)
-  //   if(!account){
-  //     setAccount({connected:false, address: "", provider:""})
-  //   }
-  // }, [account]);
+  const [shouldShowAccountInfo, setShouldShowAccountInfo] = useState(false);
+  const showAccountInfo = () => {
+    setShouldShowAccountInfo(!shouldShowAccountInfo);
+  }
 
   return (
     
@@ -114,11 +107,8 @@ const Layout = ({children}:LayoutProps) => {
       </WalletConnectModal>
       <Navbar>
       <ColorModeToggle/>
-      {account.connected?
-        <HStack>
-          <Button width={'100%'} onClickHandler={onOpen} text={truncate(account.address!)} dataTest={'connectedAccountButton'} />
-          <DisconnectWalletButton onClickHandler={handleDisconnect} data-test={'disconnectWalletButton'} />
-        </HStack>
+      {account?.connected?
+        <AccountInfoPopover address={account.address} disconnect={handleDisconnect} />
         :
         <Button width={'100%'} marginBottom={'10px'} onClickHandler={onOpen} text={"Connect Wallet"} dataTest={'connectWalletButton'}/>
       } 
