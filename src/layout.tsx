@@ -90,6 +90,7 @@ const Layout = ({children}:LayoutProps) => {
     try {
         const accountsSharedByUser = await myAlgoConnect.connect();
         setAccount({connected: true, address: accountsSharedByUser[0].address, provider: 'MyAlgo'});
+        onClose();
     } catch(err) {
         console.log(err);
     }
