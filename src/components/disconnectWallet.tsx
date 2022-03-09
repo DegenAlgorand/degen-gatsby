@@ -10,7 +10,7 @@ const DisconnectWalletButton = ({onClickHandler}:DisconnectWalletButtonProps) =>
 
   return (
     <Tooltip label='Disconnect Wallet'>
-      <Button onClick={onClickHandler}><BsFillEjectFill /> </Button>
+      <Button width='100%' onClick={onClickHandler}>Disconnect Wallet</Button>
     </Tooltip>
   );
 }
