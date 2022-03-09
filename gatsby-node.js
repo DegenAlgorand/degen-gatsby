@@ -1,21 +1,6 @@
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html" || stage === "develop-html") {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /@randlabs/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    })
-  }
-}
-
 const webpack = require("webpack");
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     actions.setWebpackConfig({
         plugins: [
             new webpack.ProvidePlugin({
@@ -34,4 +19,16 @@ exports.onCreateWebpackConfig = ({ actions }) => {
             },
         },
     })
+    if (stage === "build-html" || stage === "develop-html") {
+      actions.setWebpackConfig({
+        module: {
+          rules: [
+            {
+              test: /@randlabs/,
+              use: loaders.null(),
+            },
+          ],
+        },
+      })
+    }
 }
