@@ -1,6 +1,6 @@
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
-  pathPrefix: "/degen-gatsby",
+  pathPrefix: "/",
   siteMetadata: {
       title: ``,
     siteUrl: `https://www.degentoken.xyz`
