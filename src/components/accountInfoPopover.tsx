@@ -16,7 +16,7 @@ const AccountInfoPopover = ({ address, disconnect }: IAccountInfoPopover) => {
   useEffect(() => {
     const getAcct = async () => {
       const resp = await getAccountInfo(address);
-      setAccountInfo({ algo: resp.account.amount, degen: resp.account.assets.filter((a) => a['asset-id'] === 417708610)[0].amount })
+      setAccountInfo({ algo: resp.account.amount, degen: resp.account.assets.filter((a) => a['asset-id'] === 417708610)[0]?.amount || 0 })
     }
     getAcct();
   }, [address]);
