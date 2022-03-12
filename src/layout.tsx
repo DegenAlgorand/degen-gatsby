@@ -19,6 +19,7 @@ import '@fontsource/roboto-mono';
 
 import useWalletAccount from './utils/persistAccount';
 import AccountInfoPopover from "./components/accountInfoPopover";
+import SEO from "./components/seo";
 
 if (typeof window !== `undefined`) {
   (window as any).Buffer = buffer.Buffer;
@@ -99,24 +100,26 @@ const Layout = ({children}:LayoutProps) => {
   }
 
   return (
-    
-    <ChakraProvider theme={theme}>
-      <WalletConnectModal isOpen={isOpen} onClose={onClose}>
-        <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleMyAlgoConnect} text={"Connect MyAlgo"} dataTest={'myAlgoConnectButton'} />
-        <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleWalletConnect} text={"Wallet Connect"} dataTest={'walletConnectButton'} />
-      </WalletConnectModal>
-      <Navbar>
-      <ColorModeToggle/>
-      {account?.connected?
-        <AccountInfoPopover address={account.address} disconnect={handleDisconnect} />
-        :
-        <Button width={'100%'} marginBottom={'10px'} onClickHandler={onOpen} text={"Connect Wallet"} dataTest={'connectWalletButton'}/>
-      } 
-      </Navbar>
-      <Container maxW={'7xl'}>
-        {children}
-      </Container>
-    </ChakraProvider>
+    <>
+      <SEO />
+      <ChakraProvider theme={theme}>
+        <WalletConnectModal isOpen={isOpen} onClose={onClose}>
+          <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleMyAlgoConnect} text={"Connect MyAlgo"} dataTest={'myAlgoConnectButton'} />
+          <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleWalletConnect} text={"Wallet Connect"} dataTest={'walletConnectButton'} />
+        </WalletConnectModal>
+        <Navbar>
+        <ColorModeToggle/>
+        {account?.connected?
+          <AccountInfoPopover address={account.address} disconnect={handleDisconnect} />
+          :
+          <Button width={'100%'} marginBottom={'10px'} onClickHandler={onOpen} text={"Connect Wallet"} dataTest={'connectWalletButton'}/>
+        } 
+        </Navbar>
+        <Container maxW={'7xl'}>
+          {children}
+        </Container>
+      </ChakraProvider>
+    </>
   )
 }
 
