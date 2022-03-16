@@ -1,4 +1,7 @@
-# Degen website built on gatsby, very WIP
+# Degen website built on gatsby.js 
+
+This is the Degen website at https://degentoken.xyz
+
 
 ## Install
 ```bash
