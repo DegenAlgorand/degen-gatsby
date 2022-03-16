@@ -3,7 +3,7 @@ import algosdk from "algosdk";
 const server = 'https://algoindexer.algoexplorerapi.io';
 const indexer = new algosdk.Indexer('', server, '');
 
-const getAccountInfo = async (address: string) => {
+export const getAccountInfo = async (address: string) => {
     let resp = {};
     if (address) {
         resp = await indexer.lookupAccountByID(address).do();
@@ -11,4 +11,10 @@ const getAccountInfo = async (address: string) => {
     return resp;
 }
 
-export default getAccountInfo;
+export const getAssetInfo = async (assetId: number) => {
+    let resp = {};
+    if (assetId) {
+        resp = await indexer.lookupAssetByID(assetId).do();
+    }
+    return resp;
+}

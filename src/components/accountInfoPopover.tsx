@@ -3,7 +3,7 @@ import { Popover, PopoverTrigger, Button, Portal, PopoverContent, PopoverArrow,
   PopoverHeader, PopoverCloseButton, PopoverBody, PopoverFooter, Text
 } from '@chakra-ui/react';
 import DisconnectWalletButton from './disconnectWallet';
-import getAccountInfo from '../utils/getAccountInfo';
+import { getAccountInfo } from '../utils/getAccountInfo';
 import { truncate } from '../utils/utilities';
 
 interface IAccountInfoPopover {

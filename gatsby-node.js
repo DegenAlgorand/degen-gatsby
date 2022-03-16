@@ -11,8 +11,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
             fallback: {
                 "crypto": require.resolve("crypto-browserify"),
                 "stream": require.resolve("stream-browserify"),
+                "util": require.resolve("util/"),
                 "assert": false,
-                "util": false,
                 "http": false,
                 "https": false,
                 "os": false
@@ -25,6 +25,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
           rules: [
             {
               test: /@randlabs/,
+              use: loaders.null(),
+            },
+            {
+              test: /electron/,
               use: loaders.null(),
             },
           ],
