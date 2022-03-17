@@ -9,6 +9,7 @@ import MyAlgoConnect from '@randlabs/myalgo-connect';
 import theme from "./theme";
 import Navbar from "./components/navbar";
 import Button from "./components/button";
+import Select from "./components/select";
 import WalletConnectModal from "./components/walletConnectModal"
 import ColorModeToggle from "./components/colorModeToggle";
 
@@ -33,6 +34,7 @@ interface LayoutProps {
 const Layout = ({children}:LayoutProps) => {
     const [account, setAccount] = useWalletAccount({connected:false, address: "", provider:""});
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const [environment, setEnvironment] = useState<string>();
 
   const handleWalletConnect = async () => {
     // Create a connector
@@ -99,6 +101,10 @@ const Layout = ({children}:LayoutProps) => {
     setShouldShowAccountInfo(!shouldShowAccountInfo);
   }
 
+  useEffect(() => {
+    setEnvironment(process.env.GATSBY_ENV)
+  }, []);
+
   return (
     <>
       <SEO />
@@ -107,13 +113,13 @@ const Layout = ({children}:LayoutProps) => {
           <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleMyAlgoConnect} text={"Connect MyAlgo"} dataTest={'myAlgoConnectButton'} />
           <Button width={'100%'} marginBottom={'10px'} onClickHandler={handleWalletConnect} text={"Wallet Connect"} dataTest={'walletConnectButton'} />
         </WalletConnectModal>
-        <Navbar>
-        <ColorModeToggle/>
-        {account?.connected?
-          <AccountInfoPopover address={account.address} disconnect={handleDisconnect} />
-          :
-          <Button width={'100%'} marginBottom={'10px'} onClickHandler={onOpen} text={"Connect Wallet"} dataTest={'connectWalletButton'}/>
-        } 
+        <Navbar left={ environment == 'dev' ? <Select/>:<></>}>
+          <ColorModeToggle/>
+          {account?.connected?
+            <AccountInfoPopover address={account.address} disconnect={handleDisconnect} />
+            :
+            <Button width={'100%'} marginBottom={'10px'} onClickHandler={onOpen} text={"Connect Wallet"} dataTest={'connectWalletButton'}/>
+          }
         </Navbar>
         <Container maxW={'7xl'}>
           {children}

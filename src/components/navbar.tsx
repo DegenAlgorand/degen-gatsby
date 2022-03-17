@@ -21,9 +21,10 @@ import DegenTokenLogo from "./logos/degenTokenLogo";
 
 interface NavbarProps {
   children?: React.ReactNode;
+  left?: React.ReactNode;
 }
 
-const Navbar = ({children}:NavbarProps) => {
+const Navbar = ({children, left}:NavbarProps) => {
   const bg = useColorModeValue("white", "gray.800");
   const mobileNav = useDisclosure();
 
@@ -50,6 +51,11 @@ const Navbar = ({children}:NavbarProps) => {
             <Box display={{ base: "none", md: "inline-flex" }}>
               <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
                 decentralized generation
+              </chakra.h1>
+            </Box>
+            <Box display={{ base: "none", md: "inline-flex" }}>
+              <chakra.h1 fontSize="xl" fontWeight="medium" ml="2">
+                {left}
               </chakra.h1>
             </Box>
             <Box display={{ base: "inline-flex", md: "none" }}>
