@@ -120,7 +120,7 @@ const Layout = ({children}:LayoutProps) => {
             :
             <Button width={'100%'} marginBottom={'10px'} onClickHandler={onOpen} text={"Connect Wallet"} dataTest={'connectWalletButton'}/>
           }
-        </Navbar >
+        </Navbar>
         <Container maxW={'7xl'}>
           {children}
         </Container>
