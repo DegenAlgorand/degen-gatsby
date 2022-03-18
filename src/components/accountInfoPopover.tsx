@@ -3,7 +3,7 @@ import { Popover, PopoverTrigger, Button, Portal, PopoverContent, PopoverArrow,
   PopoverHeader, PopoverCloseButton, PopoverBody, PopoverFooter, Text
 } from '@chakra-ui/react';
 import DisconnectWalletButton from './disconnectWallet';
-import getAccountInfo from '../utils/getAccountInfo';
+import { getAccountInfo } from '../utils/getAccountInfo';
 import { truncate } from '../utils/utilities';
 
 interface IAccountInfoPopover {
@@ -16,7 +16,7 @@ const AccountInfoPopover = ({ address, disconnect }: IAccountInfoPopover) => {
   useEffect(() => {
     const getAcct = async () => {
       const resp = await getAccountInfo(address);
-      setAccountInfo({ algo: resp.account.amount, degen: resp.account.assets.filter((a) => a['asset-id'] === 417708610)[0]?.amount || 0 })
+      setAccountInfo({ algo: resp.amount, degen: resp.assets.filter((a) => a['asset-id'] === 417708610)[0]?.amount || 0 })
     }
     getAcct();
   }, [address]);
