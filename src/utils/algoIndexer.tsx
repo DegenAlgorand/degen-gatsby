@@ -20,7 +20,6 @@ const getAssetInfo = async (assetId: number, includeAll = false): Promise<Asset>
   try {
     const resp = await indexer.lookupAssetByID(assetId).includeAll(includeAll).do();
     const asset = convert(resp.asset) as Asset;
-    console.log(asset.params);
     return asset;
   } catch (err: any) {
     console.log(err);
