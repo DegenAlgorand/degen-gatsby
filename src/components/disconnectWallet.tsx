@@ -1,6 +1,5 @@
 import { Button, Tooltip } from '@chakra-ui/react';
 import React from 'react'
-import { BsFillEjectFill } from "react-icons/bs";
 
 interface DisconnectWalletButtonProps {
   onClickHandler: React.MouseEventHandler<HTMLButtonElement>,

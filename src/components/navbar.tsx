@@ -7,15 +7,8 @@ import {
   useColorModeValue,
   VisuallyHidden,
   HStack,
-  Button,
   useDisclosure,
-  VStack,
-  IconButton,
-  CloseButton,
-  Text,
-  color,
 } from "@chakra-ui/react";
-import { AiOutlineMenu } from "react-icons/ai";
 import DegenTokenLogo from "./logos/degenTokenLogo";
 
 
