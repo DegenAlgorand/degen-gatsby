@@ -1,15 +1,25 @@
-import React from "react";
-import { Select as ImportedSelect} from '@chakra-ui/react'
+import React, { useEffect, useState } from "react";
+import { Select } from '@chakra-ui/react'
+import createPersistedState from 'use-persisted-state';
 
-const Select = () => {
+type Network = 'mainnet' | 'testnet' | 'devnet';
 
-    return (
-        <ImportedSelect placeholder='Select option'>
-            <option value='option1'>Option 1</option>
-            <option value='option2'>Option 2</option>
-            <option value='option3'>Option 3</option>
-        </ImportedSelect>
-    )
+const useNetworkState = createPersistedState<Network>('network');
+
+const NetworkSelect = () => {
+  const [network, setNetwork] = useNetworkState('mainnet');
+
+  const handleSetNetwork = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setNetwork(e.target.value as Network);
   }
+
+  return (
+    <Select onChange={(e) => handleSetNetwork(e)} value={network}>
+      <option value='mainnet'>Mainnet</option>
+      <option value='testnet'>Testnet</option>
+      <option value='devnet'>Devnet</option>
+    </Select>
+  )
+}
   
-  export default Select;
+export default NetworkSelect;
