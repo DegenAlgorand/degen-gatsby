@@ -17,7 +17,7 @@ const GraffeCard = ({ id }: GCard) => {
   return (
     <>
       {asset && 
-        <Box>
+        <Box key={asset.index}>
           {asset?.index}
           {asset?.params.name}
           <a href={`https://www.nftexplorer.app/asset/${asset.index}`}>
