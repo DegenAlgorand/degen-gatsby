@@ -25,7 +25,7 @@ const AccountInfoPopover = ({ address, disconnect }: IAccountInfoPopover) => {
       setAccountInfo(
         { 
           algo: account.amount || 0,
-          degen: account?.assets.find((a) => a.assetId === 417708610)?.amount || 0,
+          degen: account?.assets?.find((a) => a.assetId === 417708610)?.amount || 0,
         } as AccountHoldings
       );
     }
