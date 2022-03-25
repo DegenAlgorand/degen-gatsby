@@ -14,19 +14,21 @@ const GraffeCard = ({ id }: GCard) => {
     setAsset(await getAssetInfo(id));
   }, [id]);
 
-  return (
-    <>
-      {asset && 
-        <Box key={asset.index}>
-          {asset?.index}
-          {asset?.params.name}
-          <a href={`https://www.nftexplorer.app/asset/${asset.index}`}>
-            <img width={200} src={asset?.params.url.replace('ipfs://', 'https://ipfs.io/ipfs/')} />
-          </a>
-        </Box>
-      }
-    </>
-  )
+  if (asset) {
+    return (
+      <Box key={id}>
+        {asset?.index}
+        {asset?.params.name}
+        <a href={`https://www.nftexplorer.app/asset/${asset.index}`}>
+          <img width={200} src={asset?.params.url.replace('ipfs://', 'https://ipfs.io/ipfs/')} />
+        </a>
+      </Box>
+    )
+  } else {
+    return (
+      <Box key={id}>Empty</Box>
+    )
+  }
 }
 
 const Graffe = () => {
