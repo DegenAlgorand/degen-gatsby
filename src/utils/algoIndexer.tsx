@@ -2,13 +2,13 @@ import algosdk from "algosdk";
 import { Account, Asset } from "../types";
 const camelcaseKeys = require('camelcase-keys');
 
-const server = 'https://algoindexer.algoexplorerapi.io';
+const server = 'https://mainnet-api.algonode.cloud';
 const indexer = new algosdk.Indexer('', server, '');
 
 const getAccountInfo = async (address: string): Promise<Account> => {
   try {
-    const resp = await indexer.lookupAccountByID(address).do();
-    const account = convert(resp.account) as Account;
+    const accountResp = await indexer.lookupAccountByID(address).do();
+    const account = convert(accountResp) as Account;
     return account;
   } catch (err: any) {
     console.log(err);
@@ -18,8 +18,8 @@ const getAccountInfo = async (address: string): Promise<Account> => {
 
 const getAssetInfo = async (assetId: number, includeAll = false): Promise<Asset> => {
   try {
-    const resp = await indexer.lookupAssetByID(assetId).includeAll(includeAll).do();
-    const asset = convert(resp.asset) as Asset;
+    const assetResp = await indexer.lookupAssetByID(assetId).includeAll(includeAll).do();
+    const asset = convert(assetResp) as Asset;
     return asset;
   } catch (err: any) {
     console.log(err);
