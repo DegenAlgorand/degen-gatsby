@@ -54,7 +54,6 @@ const Coffee = () => {
   const [displayBeans, setDisplayBeans] = useState<number[]>();
   const [slice, setSlice] = useState(12);
   useEffect(() => {
-    console.log(slice);
     setDisplayBeans(beans?.slice(0, slice));
   }, [beans, slice]);
 
