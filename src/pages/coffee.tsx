@@ -6,11 +6,26 @@ import pLimit from 'p-limit'
 import useWalletAccount from '../utils/persistAccount';
 import Layout from '../layout';
 import { beans as beansIDs } from '../data/beansIDs';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import { beanrank } from '../data/beanrank';
+import InfiniteScroll from 'react-infinite-scroll-component'; 
 
 interface GCard {
   id: number,
 }
+
+interface BeanRank {
+  rank: number,
+  unit_name: string,
+  score: number,
+  properties: {
+      Sky: string,
+      Floor: string,
+      Roast: string,
+      Roast_Type: string,
+      Power: string,
+  }
+}
+
 const BeansCard = ({ id }: GCard) => {
   const [asset, setAsset] = useState<Asset>();
 
@@ -18,16 +33,31 @@ const BeansCard = ({ id }: GCard) => {
     setAsset(await getAssetInfo(id));
   }, [id]);
 
+  const [rankInfo, setRankInfo] = useState<BeanRank>();
+  useEffect(() => {
+    const rankinfo = beanrank.find((br: BeanRank) => br.unit_name === asset?.params?.unitName);
+    setRankInfo(rankinfo);
+  }, [asset]);
+
   if (asset) {
     return (
       <Center>
-        <Box p="5" width={{ sm: '100%', md: 300 }} borderWidth="1px">
+        <Box p="5" width={{ sm: '100%', md: 305 }} borderWidth="1px">
           <Link href={`https://www.nftexplorer.app/asset/${asset.index}`}>
-          <Image borderRadius="md" src={asset?.params?.url?.replace('ipfs://', 'https://ipfs.io/ipfs/')} />
-          <Text fontSize={'2xl'}>
-            {asset?.params?.name}
-          </Text>
+            <Text fontSize={'xl'}>
+              {asset?.params?.unitName}
+            </Text>
           </Link>
+          <Image borderRadius="md" src={asset?.params?.url?.replace('ipfs://', 'https://ipfs.io/ipfs/')} />
+
+          <Box fontSize={'small'} pt='10px'>
+              Rank: {rankInfo?.rank} ({rankInfo?.score.toFixed(2)})<br/>
+              Floor: {rankInfo?.properties.Floor}<br/>
+              Power: {rankInfo?.properties.Power}<br/>
+              Roast: {rankInfo?.properties.Roast}<br/>
+              Roast Type: {rankInfo?.properties.Roast_Type}<br/>
+              Sky: {rankInfo?.properties.Sky}
+          </Box>
         </Box>
       </Center>
     )
@@ -39,7 +69,6 @@ const BeansCard = ({ id }: GCard) => {
 }
 
 const Coffee = () => {
-  const limit = pLimit(5);
   const [account, _ ] = useWalletAccount();
 
   const [beans, setBeans] = useState<number[]>([]);
@@ -67,7 +96,12 @@ const Coffee = () => {
 
   return (
     <Layout>
-      <Heading pt='10px'>Coffee Beans: {beans?.length}</Heading>
+      {!account && 
+        <Heading textAlign={'center'} pt='20px' verticalAlign={'center'}>Connect Wallet to See Beans</Heading>
+      }
+      {account && 
+        <Heading pt='10px'>Coffee Beans: {beans?.length}</Heading>
+      }
       <InfiniteScroll
         dataLength={displayBeans?.length || 0}
         next={fetchhMore}
