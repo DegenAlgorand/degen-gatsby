@@ -10,7 +10,6 @@ const Posts = ({ data }) => {
         <Box pt={10}>
         <Heading>Blog Posts</Heading>
         {data.allMdx.edges.map((e) => {
-          console.log(e);
           return (
             <Box key={e.node.id} pt={5}>
               <Link href={`/${e.node.slug}`} >
@@ -35,7 +34,7 @@ const Posts = ({ data }) => {
 
 export const query = graphql`
   {
-    allMdx {
+    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           id
