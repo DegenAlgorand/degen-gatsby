@@ -7,7 +7,7 @@ require("dotenv").config({
 module.exports = {
   pathPrefix: "/",
   siteMetadata: {
-      title: ``,
+      title: `Degen Token`,
     siteUrl: `https://www.degentoken.xyz`
   },
   plugins: ["gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap",
