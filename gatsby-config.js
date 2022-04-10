@@ -10,7 +10,8 @@ module.exports = {
       title: ``,
     siteUrl: `https://www.degentoken.xyz`
   },
-  plugins: ["gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+  plugins: ["gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap",
+    "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
@@ -24,18 +25,21 @@ module.exports = {
       "path": "./src/pages/"
     },
     __key: "pages"
+  },{
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      "name": "posts",
+      "path": "./src/posts/",
+    },
+  }, {
+    resolve: "gatsby-plugin-page-creator",
+    options: {
+      "path": "./src/posts/",
+    },
   }, {
     resolve: '@chakra-ui/gatsby-plugin',
     options: {
-      /**
-       * @property {boolean} [resetCSS=true]
-       * if false, this plugin will not use `<CSSReset />
-       */
       resetCSS: true,
-      /**
-       * @property {boolean} [isUsingColorMode=true]
-       * if false, this plugin will not use <ColorModeProvider />
-       */
       isUsingColorMode: true,
     },
   }]
