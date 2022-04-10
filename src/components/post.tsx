@@ -3,7 +3,7 @@ import Layout from '../layout';
 import { Center, Box, Heading, Code, Link } from '@chakra-ui/react'
 
 import { MDXProvider } from "@mdx-js/react"
-import SEO from "../components/seo";
+import SEO from "./seo";
 
 const components = {
   h1: (props: string) => <Heading as='h1' size='xl' pb={10} {...props} />,
@@ -31,7 +31,6 @@ interface IPost {
   children?: JSX.Element;
 }
 const Post = ({ frontmatter, children }: IPost) => {
-  console.log(frontmatter);
   return (
     <Layout>
       <SEO title={frontmatter.title} />
