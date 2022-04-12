@@ -16,6 +16,7 @@ import '@fontsource/roboto-mono';
 
 import SEO from "./components/seo";
 import ConnectButton from "./components/connect/connectButton";
+import Footer from './components/footer';
 
 if (typeof window !== `undefined`) {
   (window as any).Buffer = buffer.Buffer;
@@ -47,6 +48,7 @@ const Layout = ({children}:LayoutProps) => {
         <Container maxW={'7xl'}>
           {children}
         </Container>
+        <Footer />
       </ChakraProvider>
     </>
   )

@@ -3,16 +3,16 @@ import React from 'react';
 import DegenTokenLogo from '../logos/degenTokenLogo';
 
 const BuildingCommunity = () => (
-    <Stack
+  <Stack
     align={'center'}
     spacing={{ base: 8, md: 10 }}
-    py={{ base: 20, md: 28 }}
+    py={{ base: 10, md: 28 }}
     direction={{ base: 'column', md: 'row' }}>
     <Stack flex={1} spacing={{ base: 5, md: 10 }}>
       <Heading
         lineHeight={1.1}
         fontWeight={600}
-        fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
+        fontSize={{ base: '4xl', sm: '4xl', lg: '6xl' }}>
         <Text
           as={'span'}
           position={'relative'}
@@ -42,25 +42,25 @@ const BuildingCommunity = () => (
         direction={{ base: 'column', sm: 'row' }}>
         <Link href='https://discord.gg/yfzG2NX4Vz' _hover={{ textDecoration: 'none' }}>
           <Button
-            rounded={'full'}
             size={'lg'}
             fontWeight={'normal'}
             px={6}
             colorScheme={'purple'}
             bg={'purple.400'}
-            _hover={{ bg: 'purple.500' }}>
+            _hover={{ bg: 'purple.500' }}
+            w={['100%']}>
             Join Discord
           </Button>
         </Link>
         <Link href='https://app.pact.fi/swap?pair=ALGO0/DEGEN+TOKEN417708610(100)' _hover={{ textDecoration: 'none' }}>
           <Button
-            rounded={'full'}
             size={'lg'}
             fontWeight={'normal'}
             px={6}
             colorScheme={'purple'}
             bg={'green.400'}
-            _hover={{ bg: 'green.500' }}>
+            _hover={{ bg: 'green.500' }}
+            w={['100%']}>
             Buy on PactFi
           </Button>
         </Link>

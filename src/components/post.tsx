@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from '../layout';
-import { Center, Box, Heading, Code, Link } from '@chakra-ui/react'
+import { Center, Box, Heading, Code, Link } from '@chakra-ui/react';
 
-import { MDXProvider } from "@mdx-js/react"
+import { MDXProvider } from "@mdx-js/react";
 import SEO from "./seo";
 
 const components = {
@@ -43,7 +43,6 @@ const Post = ({ frontmatter, children }: IPost) => {
         <MDXProvider components={components}>{children}</MDXProvider>
       </Box>
       </Center>
-      
     </Layout>
   )
 }
