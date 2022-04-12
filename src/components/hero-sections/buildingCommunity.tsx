@@ -48,7 +48,7 @@ const BuildingCommunity = () => (
             px={6}
             colorScheme={'purple'}
             bg={'purple.400'}
-            _hover={{ bg: 'purple.500', textDecoration: 'none' }}>
+            _hover={{ bg: 'purple.500' }}>
             Join Discord
           </Button>
         </Link>
