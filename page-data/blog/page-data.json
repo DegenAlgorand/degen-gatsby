@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-blog-index-tsx",
+    "path": "/blog/",
+    "result": {"data":{"allMdx":{"edges":[{"node":{"id":"dfdd13e0-692a-5b36-9df0-0188c4bbe1d5","excerpt":"PactFi is including the Degen community as part of its Aeneas Rewards How much money: 10,000 Algos in rewards When does it start: April 15th…","frontmatter":{"date":"04/11/2022","title":"PactFi Adds Degen to Aeneas Rewards"},"slug":"blog/pactfi-aeneas-rewards-degen/"}}]}},"pageContext":{}},
+    "staticQueryHashes": []}
