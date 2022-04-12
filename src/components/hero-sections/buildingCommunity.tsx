@@ -1,4 +1,4 @@
-import { Heading, Stack, Text, Button, Image, Flex, Box, createIcon, Link } from '@chakra-ui/react';
+import { Heading, Stack, Text, Button, Flex, Link, Hide } from '@chakra-ui/react';
 import React from 'react';  
 import DegenTokenLogo from '../logos/degenTokenLogo';
 
@@ -40,7 +40,7 @@ const BuildingCommunity = () => (
       <Stack
         spacing={{ base: 4, sm: 6 }}
         direction={{ base: 'column', sm: 'row' }}>
-        <Link href='https://discord.gg/yfzG2NX4Vz'>
+        <Link href='https://discord.gg/yfzG2NX4Vz' _hover={{ textDecoration: 'none' }}>
           <Button
             rounded={'full'}
             size={'lg'}
@@ -48,20 +48,34 @@ const BuildingCommunity = () => (
             px={6}
             colorScheme={'purple'}
             bg={'purple.400'}
-            _hover={{ bg: 'purple.500' }}>
+            _hover={{ bg: 'purple.500', textDecoration: 'none' }}>
             Join Discord
+          </Button>
+        </Link>
+        <Link href='https://app.pact.fi/swap?pair=ALGO0/DEGEN+TOKEN417708610(100)' _hover={{ textDecoration: 'none' }}>
+          <Button
+            rounded={'full'}
+            size={'lg'}
+            fontWeight={'normal'}
+            px={6}
+            colorScheme={'purple'}
+            bg={'green.400'}
+            _hover={{ bg: 'green.500' }}>
+            Buy on PactFi
           </Button>
         </Link>
       </Stack>
     </Stack>
-    <Flex
-      flex={1}
-      justify={'center'}
-      align={'center'}
-      position={'relative'}
-      w={'full'}>
-        <DegenTokenLogo size={300} />
-    </Flex>
+    <Hide below={'md'}>
+      <Flex
+        flex={1}
+        justify={'center'}
+        align={'center'}
+        position={'relative'}
+        w={'full'}>
+          <DegenTokenLogo size={300} />
+      </Flex>
+    </Hide>
   </Stack>
 )
 
