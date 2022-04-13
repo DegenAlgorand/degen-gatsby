@@ -35,7 +35,7 @@ const Post = ({ frontmatter, children }: IPost) => {
     <Layout>
       <SEO title={frontmatter.title} />
       <Center>
-      <Box pt={20} w={960}>
+      <Box pt={10} w={960}>
         <Heading pb={5} as={'h1'}>{frontmatter.title}</Heading>
         <Heading as={'h6'} size={'sm'} pb={5}>
           <time dateTime={frontmatter.date}>{frontmatter.date}</time>
