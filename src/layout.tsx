@@ -28,10 +28,7 @@ interface LayoutProps {
 
 // markup
 const Layout = ({children}:LayoutProps) => {
-
   const [environment, setEnvironment] = useState<string>();
-
-  
 
   useEffect(() => {
     setEnvironment(process.env.GATSBY_ENV)

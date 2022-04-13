@@ -8,7 +8,7 @@ import {
     useColorModeValue,
     VisuallyHidden,
   } from '@chakra-ui/react';
-  import { FaGithub, FaTwitter, FaDiscord, FaBlog } from 'react-icons/fa';
+  import { FaGithub, FaTwitter, FaDiscord } from 'react-icons/fa';
   import React, { ReactNode } from 'react';
   
   const SocialButton = ({
