@@ -45,7 +45,7 @@ const Layout = ({children}:LayoutProps) => {
           <ColorModeToggle/>
           <ConnectButton />
         </Navbar>
-        <Container maxW={'7xl'}>
+        <Container maxW={'7xl'} minHeight={'81vh'}>
           {children}
         </Container>
         <Footer />
