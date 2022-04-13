@@ -16,6 +16,7 @@ import '@fontsource/roboto-mono';
 
 import SEO from "./components/seo";
 import ConnectButton from "./components/connect/connectButton";
+import Footer from './components/footer';
 
 if (typeof window !== `undefined`) {
   (window as any).Buffer = buffer.Buffer;
@@ -27,10 +28,7 @@ interface LayoutProps {
 
 // markup
 const Layout = ({children}:LayoutProps) => {
-
   const [environment, setEnvironment] = useState<string>();
-
-  
 
   useEffect(() => {
     setEnvironment(process.env.GATSBY_ENV)
@@ -44,9 +42,10 @@ const Layout = ({children}:LayoutProps) => {
           <ColorModeToggle/>
           <ConnectButton />
         </Navbar>
-        <Container maxW={'7xl'}>
+        <Container maxW={'7xl'} minHeight={'81vh'}>
           {children}
         </Container>
+        <Footer />
       </ChakraProvider>
     </>
   )
