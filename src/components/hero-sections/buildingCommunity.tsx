@@ -65,7 +65,7 @@ const BuildingCommunity = () => (
               Buy on PactFi
             </Button>
           </Link>
-          <Badge border={'1px'} w={'112px'} colorScheme='orange'>Aeneas Rewards</Badge>
+          <Badge textAlign={'center'} border={'1px'} w={'120px'} colorScheme='orange'>Aeneas Rewards</Badge>
           <Link href='/blog/pactfi-aeneas-rewards-degen/'>
             <Text fontSize={'sm'}>Receive Aeneas Rewards for providing liquidity on the Degen / Algo 1% Pool</Text>
           </Link>
