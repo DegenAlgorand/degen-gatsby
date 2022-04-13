@@ -1,4 +1,4 @@
-import { Heading, Stack, Text, Button, Flex, Link, Hide } from '@chakra-ui/react';
+import { Heading, Stack, Text, Button, Flex, Link, Hide, Badge } from '@chakra-ui/react';
 import React from 'react';  
 import DegenTokenLogo from '../logos/degenTokenLogo';
 
@@ -52,18 +52,26 @@ const BuildingCommunity = () => (
             Join Discord
           </Button>
         </Link>
-        <Link href='https://app.pact.fi/swap?pair=ALGO0/DEGEN+TOKEN417708610(100)' _hover={{ textDecoration: 'none' }}>
-          <Button
-            size={'lg'}
-            fontWeight={'normal'}
-            px={6}
-            colorScheme={'purple'}
-            bg={'green.400'}
-            _hover={{ bg: 'green.500' }}
-            w={['100%']}>
-            Buy on PactFi
-          </Button>
-        </Link>
+        <Stack>
+          <Link href='https://app.pact.fi/swap?pair=ALGO0/DEGEN+TOKEN417708610(100)' _hover={{ textDecoration: 'none' }}>
+            <Button
+              size={'lg'}
+              fontWeight={'normal'}
+              px={6}
+              colorScheme={'purple'}
+              bg={'green.400'}
+              _hover={{ bg: 'green.500' }}
+              w={['100%']}>
+              Buy on PactFi
+            </Button>
+          </Link>
+          <Badge border={'1px'} w={'112px'} colorScheme='orange'>Aeneas Rewards</Badge>
+          <Link href='/blog/pactfi-aeneas-rewards-degen/'>
+            <Text fontSize={'sm'}>Receive Aeneas Rewards for providing liquidity on the Degen / Algo 1% Pool</Text>
+          </Link>
+        </Stack>
+        
+        
       </Stack>
     </Stack>
     <Hide below={'md'}>
