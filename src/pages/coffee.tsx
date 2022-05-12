@@ -48,7 +48,7 @@ const BeansCard = ({ id }: GCard) => {
               {asset?.params?.unitName}
             </Text>
           </Link>
-          <Image borderRadius="md" src={asset?.params?.url?.replace('ipfs://', 'https://ipfs.io/ipfs/')} />
+          <Image borderRadius="md" src={asset?.params?.url?.replace('ipfs://', 'https://degen.mypinata.cloud/ipfs/')} />
 
           <Box fontSize={'small'} pt='10px'>
               Rank: {rankInfo?.rank} ({rankInfo?.score.toFixed(2)})<br/>
